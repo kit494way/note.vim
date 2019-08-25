@@ -1,0 +1,49 @@
+*note.vim*  Plugin to write and manage notes in local directory.
+
+==============================================================================
+CONTENTS                                                            *note-vim*
+
+1. Introduction                                                   |note-intro|
+2. Settings                                                    |note-settings|
+3. Commands                                                    |note-commands|
+
+==============================================================================
+INTRODUCTION                                                      *note-intro*
+
+This plugin provides functionality for read/write notes in a local directory.
+
+==============================================================================
+SETTINGS                                                       *note-settings*
+
+
+                                                      *g:note_vim_default_dir*
+g:note_vim_default_dir
+    This is the directory where notes saved. If not set, current directory is
+    used.
+
+==============================================================================
+COMMANDS                                                       *note-commands*
+
+:Note {filename}                                                       *:Note*
+    Open a new file `%Y%m%d%H%M%S-{filename}` in the note directory.
+    `%Y%m%d%H%M%S` is replaced by current time. The note directory is set by
+    `g:note_vim_default_dir`, default is current directory.
+
+:NoteOpenCursor                                              *:NoteOpenCursor*
+    Open a file path under the cursor in the note directory. If the path
+    under cursor is example.md, open a `example.md` in the note directory.
+
+:NoteCd [directory]                                                  *:NoteCd*
+    Change the note directory. If `[directory]` is omitted,
+    `g:note_vim_default_dir` is used.
+
+:NotePwd                                                            *:NotePwd*
+    Show current note directory.
+
+:NoteFind                                                          *:NoteFind*
+    Fuzzy find file in the note directory by file name.
+    This requires fzf (https://github.com/junegunn/fzf) and fzf.vim.
+
+:NoteGrep                                                          *:NoteGrep*
+    Search files in the note directory.
+    This requires ack.vim (https://github.com/mileszs/ack.vim).
